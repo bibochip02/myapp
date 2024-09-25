@@ -26,7 +26,10 @@ require 'simplecov-lcov'
 # require only the support files necessary.
 #
 # Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
-SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
+SimpleCov.formatters = [
+  SimpleCov::Formatter::LcovFormatter,
+  SimpleCov::Formatter::CoberturaFormatter
+]
 SimpleCov.start
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.

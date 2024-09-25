@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/hungbui/workspaces/myapp/app/models/user.rb": {
+      "/home/buihung-wogi/workspaces/myapp/app/models/user.rb": {
         "lines": [
           1,
           1,
@@ -14,7 +14,7 @@
           null
         ]
       },
-      "/home/hungbui/workspaces/myapp/app/models/application_record.rb": {
+      "/home/buihung-wogi/workspaces/myapp/app/models/application_record.rb": {
         "lines": [
           1,
           1,
@@ -22,6 +22,6 @@
         ]
       }
     },
-    "timestamp": 1726238676
+    "timestamp": 1727283177
   }
 }
