@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@2.0.0
   node: circleci/node@5.1
-  # codecov: codecov/codecov@3.2.5
+  codecov: codecov/codecov@3.2.5
 
 workflows:
   build-deploy:
@@ -52,10 +52,11 @@ jobs:
         - run:
             command: 'bundle exec rails db:setup --trace'
             name: Database setup
-        - ruby/rspec-test:
-            include: "spec/**/*_spec.rb"
-        # - codecov/upload:
-        #     file: "coverage/coverage.xml"
-        #     flags: backend
-        #     when: always
-        #     token:
+        - run:
+            command: bundle exec rspec
+            name: rspec
+        - codecov/upload:
+            file: "coverage/coverage.xml"
+            flags: backend
+            when: always
+            token: CODECOV_TOKEN
