@@ -1,36 +1,61 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:ruby:.
 version: 2.1
+
 orbs:
-  ruby: circleci/ruby@2.0.1
-  codecov: codecov/codecov@4.0.1
-jobs:
-  test-ruby:
-    # Install gems, run rspec tests
-    docker:
-      - image: cimg/ruby:3.3.4-node
-    environment:
-      RAILS_ENV: test
-    steps:
-      - checkout
-      - ruby/install-deps
-      - run:
-          name: rspec test
-          command: bundle exec rspec
-      - codecov/upload
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
+  ruby: circleci/ruby@2.0.0
+  node: circleci/node@5.1
+  # codecov: codecov/codecov@3.2.5
+
 workflows:
-  build-and-test:
+  build-deploy:
     jobs:
-      - test-ruby
-    # - deploy:
-    #     requires:
-    #       - test-ruby
+      - spec_test
+
+jobs:
+  spec_test:
+      docker:
+        - image: 'cimg/ruby:3.3.4-node'
+        - environment:
+            POSTGRES_DB: rails_blog_test
+            POSTGRES_PASSWORD: ''
+            POSTGRES_USER: circleci-demo-ruby
+          image: 'cimg/postgres:14.6-postgis'
+      resource_class: medium
+      environment:
+        BUNDLE_JOBS: '3'
+        BUNDLE_RETRY: '3'
+        PGHOST: 127.0.0.1
+        PGPASSWORD: ''
+        PGUSER: circleci-demo-ruby
+        RAILS_ENV: test
+        TZ: "Asia/Ho_Chi_Minh"
+      parallelism: 3
+      steps:
+        - checkout
+        - ruby/install-deps
+        - node/install:
+            install-yarn: true
+            node-version: '14.18'
+            yarn-version: '1.22'
+        - run:
+            name: Install required packages
+            command: |
+              sudo apt-get update && sudo apt-get install -y libvips42
+              sudo apt-get install -y libsodium-dev
+        - run:
+            name: Install libffi7
+            command: |
+              wget http://es.archive.ubuntu.com/ubuntu/pool/main/libf/libffi/libffi7_3.3-4_amd64.deb
+              sudo dpkg -i libffi7_3.3-4_amd64.deb
+        - run:
+            command: 'dockerize -wait tcp://localhost:5432 -timeout 1m'
+            name: Wait for DB
+        - run:
+            command: 'bundle exec rails db:setup --trace'
+            name: Database setup
+        - ruby/rspec-test:
+            include: "spec/**/*_spec.rb"
+        # - codecov/upload:
+        #     file: "coverage/coverage.xml"
+        #     flags: backend
+        #     when: always
+        #     token:

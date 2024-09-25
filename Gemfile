@@ -39,13 +39,13 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem 'rspec-rails', '~> 7.0', '>= 7.0.1'
+  gem "rspec-rails", "~> 7.0", ">= 7.0.1"
 
-  gem 'simplecov', '~> 0.22.0'
+  gem "simplecov", "~> 0.22.0"
 
-  gem 'simplecov-cobertura', '~> 2.1'
+  gem "simplecov-cobertura", "~> 2.1"
 
-  gem 'simplecov-lcov', '~> 0.8.0'
+  gem "simplecov-lcov", "~> 0.8.0"
+
+  gem "rspec_junit_formatter", require: false
 end
-
-
