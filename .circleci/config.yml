@@ -59,4 +59,4 @@ jobs:
             file: "coverage/coverage.xml"
             flags: backend
             when: always
-            token: $CODECOV_TOKEN
+            token: "${CODECOV_TOKEN}"
