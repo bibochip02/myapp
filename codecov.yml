@@ -1,3 +1,5 @@
+codecov:
+  token: bf7996f6-dc42-4934-9dbc-b547f53c62eb
 coverage:
   status:
     project: #add everything under here, more options at https://docs.codecov.com/docs/commit-status
