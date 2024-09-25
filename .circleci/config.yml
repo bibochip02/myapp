@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@2.0.0
   node: circleci/node@5.1
-  # codecov: codecov/codecov@3.2.5
+  codecov: codecov/codecov@3.2.5
 
 workflows:
   build-deploy:
@@ -55,8 +55,8 @@ jobs:
         - run:
             command: bundle exec rspec
             name: rspec
-        # - codecov/upload:
-        #     file: "coverage/coverage.xml"
-        #     flags: backend
-        #     when: always
-        #     token:
+        - codecov/upload:
+            file: "coverage/coverage.xml"
+            flags: backend
+            when: always
+            token: ${CODECOV_TOKEN}
