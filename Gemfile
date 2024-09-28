@@ -49,3 +49,4 @@ group :development, :test do
 
   gem "rspec_junit_formatter", require: false
 end
+gem "undercover"

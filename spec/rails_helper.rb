@@ -26,6 +26,8 @@ require 'simplecov-lcov'
 # require only the support files necessary.
 #
 # Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
+SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
+
 SimpleCov.formatters = [
   SimpleCov::Formatter::LcovFormatter,
   SimpleCov::Formatter::CoberturaFormatter
