@@ -42,4 +42,7 @@ jobs:
         run: bundle exec rspec
 
       - name: run undercover
-        run: bundle exec undercover --compare main
+        run: |
+          gem install bundler undercover
+          bundle install --jobs 4 --retry 3
+          bundle exec undercover --compare main
