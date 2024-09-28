@@ -61,3 +61,11 @@ jobs:
             --repo ${{ github.repository }} \
             --commit ${{ github.event.pull_request.head.sha || github.sha }} \
             --lcov coverage/lcov/myapp.lcov
+
+      - name: store checkstyle.xml
+        run: echo $(bundle exec undercover-checkstyle --compare origin/main) >> checkstyle.xml
+
+        uses: JoseThen/comment-pr@v1.2.0
+        with:
+          file_path: 'checkstyle.xml'
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}

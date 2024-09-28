@@ -1,0 +1,23 @@
+🚨 WARNING: Coverage data is older than your latest changes and results might be incomplete. Re-run tests to update
+undercover: 👮‍♂️ some methods have no test coverage! Please add specs for methods listed below
+🚨 1) node `even?` type: instance method,
+      loc: app/models/article.rb:2:4, coverage: 0.0%
+2:   def even? hits: n/a
+3:     Time.current.to_i.even? hits: 0
+4:   end hits: n/a
+🚨 2) node `odd?` type: instance method,
+      loc: app/models/article.rb:6:8, coverage: 0.0%
+6:   def odd? hits: n/a
+7:     Time.current.to_i.odd? hits: 0
+8:   end hits: n/a
+🚨 3) node `sweet?` type: instance method,
+      loc: app/models/cake.rb:2:4, coverage: 0.0%
+2:   def sweet? hits: n/a
+3:     true hits: 0
+4:   end hits: n/a
+🚨 4) node `for_children?` type: instance method,
+      loc: app/models/cake.rb:6:8, coverage: 0.0%
+6:   def for_children? hits: n/a
+7:     true hits: 0
+8:   end hits: n/a
+Undercover finished in 0.0128s

@@ -51,3 +51,4 @@ group :development, :test do
 end
 gem "undercover"
 gem "undercover-checkstyle"
+gem "danger-undercover"
