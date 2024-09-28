@@ -13,9 +13,6 @@ jobs:
       DATABASE_URL: "postgres://postgres:postgres@localhost:5432/rails_test"
 
     runs-on: ubuntu-latest
-      permissions:
-        contents: read
-        pull-requests: write
     services:
       postgres:
         image: postgres:16.4-alpine3.20
@@ -50,7 +47,7 @@ jobs:
 
       - name: Run reviewdog
         env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.REVIEWDOG_GITHUB_API_TOKEN }}
         run: |
           git fetch --no-tags
           reviewdog -reporter=github-pr-review -runners=undercover
