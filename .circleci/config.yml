@@ -40,7 +40,7 @@ jobs:
             name: Install required packages
             command: |
               sudo apt-get update && sudo apt-get install -y libvips42
-              sudo apt-get install -y libsodium-dev
+              sudo apt-get install -y libsodium-dev cmake pkg-config
         - run:
             name: Install libffi7
             command: |
@@ -55,6 +55,9 @@ jobs:
         - run:
             command: bundle exec rspec
             name: rspec
+        - run:
+            command: bundle exec undercover --compare main
+            name: undercover
         - codecov/upload:
             file: "coverage/coverage.xml"
             flags: backend
