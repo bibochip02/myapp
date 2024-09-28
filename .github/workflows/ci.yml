@@ -32,17 +32,14 @@ jobs:
           ruby-version: '3.3.4'
           bundler-cache: true
 
+      - name: install cmake and pkg-config for undercover
+        run: sudo apt-get install cmake pkg-config
+
       - name: Set up database schema
         run: bin/rails db:schema:load
 
       - name: Run tests
         run: bundle exec rspec
 
-      - name: report coverage
-        uses: codecov/codecov-action@v4
-          with:
-            file: coverage/coverage.xml
-            flags: unittests
-            name: codecov-umbrella
-          env:
-            CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: run undercover
+        run: bundle exec undercover --compare main
