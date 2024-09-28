@@ -43,7 +43,8 @@ jobs:
 
       - name: run undercover
         run: |
-          gem install bundler undercover
+          gem install bundler
+          gem install undercover
           bundle install --jobs 4 --retry 3
           ruby -e "$(curl -s https://undercover-ci.com/uploader.rb)" -- \
             --repo ${{ github.repository }} \

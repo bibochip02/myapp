@@ -262,6 +262,9 @@ GEM
       imagen (>= 0.1.8)
       rainbow (>= 2.1, < 4.0)
       rugged (>= 0.27, < 1.8)
+    undercover-checkstyle (0.3.0)
+      rexml
+      undercover (>= 0.3.4)
     unicode-display_width (2.6.0)
     useragent (0.16.10)
     webrick (1.8.1)
@@ -293,6 +296,7 @@ DEPENDENCIES
   simplecov-lcov (~> 0.8.0)
   tzinfo-data
   undercover
+  undercover-checkstyle
 
 BUNDLED WITH
    2.5.11
