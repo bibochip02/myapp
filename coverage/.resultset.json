@@ -79,12 +79,34 @@
       "/home/buihung-wogi/workspaces/myapp/app/models/article.rb": {
         "lines": [
           0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/buihung-wogi/workspaces/myapp/app/models/cake.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
           0
         ],
         "branches": {
         }
       }
     },
-    "timestamp": 1727503985
+    "timestamp": 1727505302
   }
 }
