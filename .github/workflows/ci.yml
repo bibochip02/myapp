@@ -46,3 +46,7 @@ jobs:
           gem install bundler undercover
           bundle install --jobs 4 --retry 3
           bundle exec undercover --compare main
+          ruby -e "$(curl -s https://undercover-ci.com/uploader.rb)" -- \
+                        --repo ${{ github.repository }} \
+                        --commit ${{ github.event.pull_request.head.sha || github.sha }} \
+                        --lcov coverage/lcov/$repository-name.lcov
