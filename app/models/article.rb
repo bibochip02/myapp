@@ -10,4 +10,8 @@ class Article < ApplicationRecord
   def odd_or_even?
     Time.current.to_i.odd? || Time.current.to_i.even?
   end
+
+  def not_odd_or_even?
+    !(Time.current.to_i.odd? || Time.current.to_i.even?)
+  end
 end
