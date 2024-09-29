@@ -5,11 +5,11 @@
         "lines": [
           1,
           1,
-          1,
+          2,
           null,
           null,
           1,
-          1,
+          2,
           null,
           null
         ],
@@ -20,6 +20,21 @@
         "lines": [
           1,
           1,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/home/buihung-wogi/workspaces/myapp/app/models/cake.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
           null
         ],
         "branches": {
@@ -86,14 +101,7 @@
           0,
           0,
           0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/buihung-wogi/workspaces/myapp/app/models/cake.rb": {
-        "lines": [
-          0,
+          null,
           0,
           0,
           0,
@@ -107,6 +115,6 @@
         }
       }
     },
-    "timestamp": 1727543174
+    "timestamp": 1727575327
   }
 }
