@@ -1,3 +1,5 @@
+codecov:
+  token: bf7996f6-dc42-4934-9dbc-b547f53c62eb
 coverage:
   status:
     project: #add everything under here, more options at https://docs.codecov.com/docs/commit-status
@@ -6,3 +8,11 @@ coverage:
         target: auto #default
         threshold: 0%
         base: auto
+
+comment:                  # this is a top-level key
+  layout: " header, files, footer"
+  behavior: default
+  require_changes: false  # learn more in the Requiring Changes section below
+  require_base: false        # [true :: must have a base report to post]
+  require_head: true       # [true :: must have a head report to post]
+  hide_project_coverage: true # [true :: only show coverage on the git diff]
